@@ -1,0 +1,8 @@
+# 本仓库只收文档：AGENT.md、README.md、docs/
+# 三个插件的源码各自在自己的仓库里（dsh-fish 为上游 clone），这里一律不提交。
+*
+!.gitignore
+!AGENT.md
+!README.md
+!docs/
+!docs/**
