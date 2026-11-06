@@ -50,6 +50,7 @@ DSH（DeepSeek Harness / cordis 平台）插件的分析、开发与验证工作
 | `docs/02_dsh-xiaojing_网页版实施记录.md` | 网页端（面板 + 弹窗 + 右键菜单）实施与踩坑 |
 | `docs/03_dsh-xiaojing_改名记录.md` | dsh-pet → dsh-xiaojing 改名范围与契约层保留项 |
 | `docs/04_dsh-xiaojing_Helper实施记录.md` | Helper 小窗实施、菜单稳定性修复、JSONC 定点改写入库 |
+| `docs/05_dsh-xiaojing_发布记录.md` | npm 发布流程、2FA/格式/体积踩坑、发版清单与 tag 规则 |
 
 ## 约定
 
