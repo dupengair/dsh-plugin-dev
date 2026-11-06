@@ -1,6 +1,6 @@
-# dsh-pet 实现分析
+# dsh-xiaojing 实现分析
 
-> 分析对象：`插件开发/dsh-pet`（git clone，插件实体在嵌套子目录 `dsh-pet/dsh-pet/`，npm 包 dsh-pet v0.4.1）
+> 分析对象：`插件开发/dsh-xiaojing`（git clone，插件实体在嵌套子目录 `dsh-pet/`，npm 包 dsh-xiaojing v0.4.1；下文源码路径均以该仓库根为基准）
 > 分析目的：为「桌宠对话 ↔ DSH 指定会话打通」改造做现状摸底。本文记录截至 2026-11-05 的仓库状态（HEAD 5861a42）。
 
 ## 1. 架构总览

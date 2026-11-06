@@ -1,6 +1,7 @@
 # 04 · Helper（桌面小窗）接入 DSH 会话 — 实施记录
 
 > 范围：桌面版 Helper（Electron 小窗）从「自己的脑子」变成「DSH 会话的客户端」，与网页端共用同一条绑定。
+> 路径基准：仓库根 `插件开发/dsh-xiaojing`，TS 包实体在其 `dsh-pet/` 子目录；下文源码路径均以**仓库根**为基准（如 `dsh-pet/src/host/routes/session.ts`）。
 > 相关文档：[00 实现分析](00_dsh-xiaojing_实现分析.md)、[01 会话打通方案](01_dsh-xiaojing_会话打通方案.md)、[02 网页版实施记录](02_dsh-xiaojing_网页版实施记录.md)、[03 改名记录](03_dsh-xiaojing_改名记录.md)。
 
 ## 一、结论

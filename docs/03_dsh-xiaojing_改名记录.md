@@ -5,7 +5,7 @@
 ## 结论
 
 1. 插件由 `dsh-pet` 更名为 `dsh-xiaojing`，独立仓库 https://github.com/dupengair/dsh-xiaojing （基于 PC2005-cloud/dsh-pet v0.4.1 fork，不再跟随上游）。
-2. 更名范围 = **名称层**（npm 包名、插件 id、显示名、日志前缀、文档指路）；**契约层不动**：数据目录 `~/.dsh/dsh-pet/`、HTTP 路由前缀 `/dsh-pet-7340/`、`dsh-pet-standalone` bin、`%APPDATA%\dsh-pet-electron-helper`、`.dsh-pet-*` CSS、`x-dsh-pet-token` 头、`dsh-pet-bridge://` 协议、`DSH_PET_*` 环境变量、仓库目录名。用户数据（配置/记忆）零迁移。
+2. 更名范围 = **名称层**（npm 包名、插件 id、显示名、日志前缀、文档指路、仓库目录名——目录于 2026-11-06 由 `插件开发/dsh-pet` 改为 `插件开发/dsh-xiaojing`）；**契约层不动**：数据目录 `~/.dsh/dsh-pet/`、HTTP 路由前缀 `/dsh-pet-7340/`、`dsh-pet-standalone` bin、`%APPDATA%\dsh-pet-electron-helper`、`.dsh-pet-*` CSS、`x-dsh-pet-token` 头、`dsh-pet-bridge://` 协议、`DSH_PET_*` 环境变量。用户数据（配置/记忆）零迁移。
 3. 中文显示名「小鲸桌宠」（en "Xiaojing Pet"）。
 
 ## 代码与配置改动（改名本体）
@@ -19,7 +19,7 @@
 
 ## DSH 安装侧（本机 desktop profile）
 
-- `C:\Users\dupengair\.dsh\profiles\desktop\package.json`：dependencies 键与 bundles 条目 `dsh-pet` → `dsh-xiaojing`，link 值不变（`link:D:/Work/DSH/DSH使用/插件开发/dsh-pet/dsh-pet`，目录未挪）。
+- `C:\Users\dupengair\.dsh\profiles\desktop\package.json`：dependencies 键与 bundles 条目 `dsh-pet` → `dsh-xiaojing`；link 值指向包实体目录（目录改名后为 `link:D:/Work/DSH/DSH使用/插件开发/dsh-xiaojing/dsh-pet`）。
 - `node_modules\dsh-pet` Junction 删除，新建 `node_modules\dsh-xiaojing` → 同一目标。
 - 重开 DSH 验证通过：设置页插件名显示「小鲸桌宠」，功能正常。
 
@@ -27,6 +27,13 @@
 
 - 旧克隆 .git（在外层 dsh-pet 根）已删，原地 `git init -b main`；`.gitignore` 补 `.codegraph/`。
 - 首个 commit e9c16cb（含会话打通一期全部改动），已推 `main -> main`。此后改动（含本次改名）另行 commit。
+
+## 目录改名（2026-11-06）
+
+- 外层仓库目录 `插件开发/dsh-pet` → `插件开发/dsh-xiaojing`；**内层包实体目录仍名 `dsh-pet`**（`插件开发/dsh-xiaojing/dsh-pet`），避免额外改动构建脚本、profile link 与文档中的包内相对路径。
+- 同步改动：profile `package.json` 的 link 值 → `link:D:/Work/DSH/DSH使用/插件开发/dsh-xiaojing/dsh-pet`；`node_modules\dsh-xiaojing` Junction 重建指向新路径（目标已不存在时先 `rmdir` 再 `mklink /J`）。
+- 文档同步：`插件开发/README.md`、`插件开发/AGENT.md`、`docs/00`、`docs/02`、本文中的仓库路径引用。
+- 契约层仍不动：数据目录 `~/.dsh/dsh-pet/`、路由 `/dsh-pet-7340/` 等一律未变。
 
 ## 保留原名的原因（备忘）
 

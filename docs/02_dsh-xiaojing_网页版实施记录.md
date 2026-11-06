@@ -51,11 +51,11 @@
 
 ## 4. 构建与安装（本机流程）
 
-1. 仓库实体在嵌套 `dsh-pet/dsh-pet/`（TS + pnpm workspace）；
+1. 仓库根 `插件开发/dsh-xiaojing`，包实体在嵌套 `dsh-xiaojing/dsh-pet/`（TS + pnpm workspace）；
 2. 依赖必须用 `pnpm install --node-linker=hoisted`（isolated 布局下 rolldown 解析 react 失败、ESLint ajv 起不来；跑过普通 `pnpm install` 后需重执行）；
 3. 构建 `node scripts/prepare.js`（tsdown 出 lib/* + electron-helper/shared-core）；只改客户端可 `npm run bundle`；
-4. 安装 = profile `C:\Users\dupengair\.dsh\profiles\desktop\package.json` 里 dsh-pet 已是 `"link:D:/Work/DSH/DSH使用/插件开发/dsh-pet/dsh-pet"`（Junction），**市场版 0.4.1 装的是构建产物 lib/，改 src 不重建无效**；
-5. 宿主侧（node 半侧）改动需**重开 DSH** 生效；客户端 js 经 `/plugins/dsh-pet/client.js` 下发且 no-store，重启即新。
+4. 安装 = profile `C:\Users\dupengair\.dsh\profiles\desktop\package.json` 里 dsh-xiaojing 是 `"link:D:/Work/DSH/DSH使用/插件开发/dsh-xiaojing/dsh-pet"`（Junction），**市场版 0.4.1 装的是构建产物 lib/，改 src 不重建无效**；
+5. 宿主侧（node 半侧）改动需**重开 DSH** 生效；客户端 js 经 `/plugins/dsh-xiaojing/client.js` 下发且 no-store，重启即新。
 
 ## 5. 踩坑记录
 
