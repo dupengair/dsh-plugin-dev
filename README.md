@@ -6,16 +6,17 @@ DSH（DeepSeek Harness / cordis 平台）插件的分析、开发与验证工作
 
 | 目录 | 性质 | 当前状态 | 远程仓库 |
 | --- | --- | --- | --- |
-| `codegraph-mcp/` | config-only bundle（纯配置，无源码无依赖） | 把 codegraph MCP 接入 DSH，提供 `codegraph_explore / search / node / callers / callees / impact / files / status` 八个工具；**本机已安装并验证可用** | [dupengair/dsh-codegraph-mcp](https://github.com/dupengair/dsh-codegraph-mcp)（v0.1.0） |
+| `codegraph-mcp/` | config-only bundle（纯配置，无源码无依赖） | 把 codegraph MCP 接入 DSH，提供 `codegraph_explore / search / node / callers / callees / impact / files / status` 八个工具；已发布 npm，运行时自动探测 codegraph 位置（仓库不含机器路径） | [dupengair/dsh-codegraph-mcp](https://github.com/dupengair/dsh-codegraph-mcp)（npm `dsh-codegraph-mcp@0.1.0`，tag `v0.1.0`） |
 | `dsh-fish/` | 第三方插件源码（clone，**只读参考**） | 用于学习插件结构、事件流与边界约束；不做改动 | 上游 `ssamurias/dsh-fish`（0.8.6） |
 | `dsh-xiaojing/` | 桌宠插件源码（clone 后独立开发） | 已改造成 **dsh-xiaojing（小鲸桌宠）**，新增「DSH 会话绑定」：网页端面板/弹窗与桌面 Helper 小窗都能绑定到指定 DSH 会话，消息汇入该会话、回复回流气泡 | [dupengair/dsh-xiaojing](https://github.com/dupengair/dsh-xiaojing) |
 
 ### codegraph-mcp
 
-- 结构：`package.json` + `cordis.patch.yml` + `locale/{zh,en}.json` + `icon.svg`，通过 `@deepseek-ai/dsh-mcp-client` 起 `codegraph serve --mcp`
-- 安装：DSH 侧栏「插件 → 添加插件」，填本目录绝对路径即可（link 式安装，零依赖、无需 pnpm install）
+- 结构：`package.json` + `cordis.patch.yml` + `locale/{zh,en}.json` + `icon.svg` + `LICENSE`，通过 `@deepseek-ai/dsh-mcp-client` 起 `codegraph serve --mcp`
+- 安装：插件页填包名 `dsh-codegraph-mcp`（或本目录绝对路径，link 式安装、零依赖、无需 pnpm install）
+- 路径：`command`/`args` 用 `!!js` 表达式在加载时探测 codegraph 安装位置（`CODEGRAPH_NODE`/`CODEGRAPH_JS` 可覆盖），仓库里没有任何机器路径
 - 注意：默认不写死项目路径，调用工具时传 `projectPath`；目标项目需先 `codegraph init`
-- 文档：见 `codegraph-mcp/README.md`
+- 文档：见 `codegraph-mcp/README.md` 与 `docs/06_dsh-codegraph-mcp_可移植化与发布.md`
 
 ### dsh-xiaojing（原 dsh-pet）
 
@@ -51,6 +52,7 @@ DSH（DeepSeek Harness / cordis 平台）插件的分析、开发与验证工作
 | `docs/03_dsh-xiaojing_改名记录.md` | dsh-pet → dsh-xiaojing 改名范围与契约层保留项 |
 | `docs/04_dsh-xiaojing_Helper实施记录.md` | Helper 小窗实施、菜单稳定性修复、JSONC 定点改写入库 |
 | `docs/05_dsh-xiaojing_发布记录.md` | npm 发布流程、2FA/格式/体积踩坑、发版清单与 tag 规则 |
+| `docs/06_dsh-codegraph-mcp_可移植化与发布.md` | codegraph-mcp 从写死路径改成运行时探测（`!!js`）、可发布元数据、npm 首发与 `v0.1.0` tag |
 
 ## 约定
 
