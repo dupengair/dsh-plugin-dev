@@ -16,7 +16,7 @@ DSH（DeepSeek Harness / cordis 平台）插件的分析、开发与验证工作
 - 安装：插件页填包名 `dsh-codegraph-mcp`（或本目录绝对路径，link 式安装、零依赖、无需 pnpm install）
 - 路径：`command`/`args` 用 `!!js` 表达式在加载时探测 codegraph 安装位置（`CODEGRAPH_NODE`/`CODEGRAPH_JS` 可覆盖），仓库里没有任何机器路径
 - 注意：默认不写死项目路径，调用工具时传 `projectPath`；目标项目需先 `codegraph init`
-- 文档：见 `codegraph-mcp/README.md` 与 `docs/06_dsh-codegraph-mcp_可移植化与发布.md`
+- 文档：见 `codegraph-mcp/README.md` 与 `docs/07_dsh-codegraph-mcp_可移植化与发布.md`
 
 ### dsh-xiaojing（原 dsh-pet）
 
@@ -52,7 +52,8 @@ DSH（DeepSeek Harness / cordis 平台）插件的分析、开发与验证工作
 | `docs/03_dsh-xiaojing_改名记录.md` | dsh-pet → dsh-xiaojing 改名范围与契约层保留项 |
 | `docs/04_dsh-xiaojing_Helper实施记录.md` | Helper 小窗实施、菜单稳定性修复、JSONC 定点改写入库 |
 | `docs/05_dsh-xiaojing_发布记录.md` | npm 发布流程、2FA/格式/体积踩坑、发版清单与 tag 规则 |
-| `docs/06_dsh-codegraph-mcp_可移植化与发布.md` | codegraph-mcp 从写死路径改成运行时探测（`!!js`）、可发布元数据、npm 首发与 `v0.1.0` tag |
+| `docs/06_dsh-codegraph-mcp_开发过程记录.md` | 需求原话记录（探测兜底 UI、包名、projectPath 设置界面、tag 规则） |
+| `docs/07_dsh-codegraph-mcp_可移植化与发布.md` | codegraph-mcp 从写死路径改成运行时探测（`!!js`）、可发布元数据、npm 首发与 `v0.1.0` tag |
 
 ## 约定
 
